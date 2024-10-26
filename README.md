@@ -1,5 +1,37 @@
 # BloomFilter
-Bloom filter for string demo implementation
+Bloom filter for strings demo implementation
+
+https://en.wikipedia.org/wiki/Bloom_filter <br />
+A Bloom filter is a space-efficient probabilistic data structure, conceived by Burton Howard Bloom in 1970,<br />
+ that is used to test whether an element is a member of a set.<br />
+ False positive matches are possible, but false negatives are not<br />
+ – in other words, a query returns either "possibly in set" or "definitely not in set".<br />
+ Elements can be added to the set, but not removed (though this can be addressed with the counting Bloom filter variant);<br />
+ the more items added, the larger the probability of false positives.<br /><br />
+ 
+## Probability of False positivity: 
+Let m be the size of bit array, k be the number of hash functions and n be the number of expected elements to be inserted in the filter, then the probability of false positive p can be calculated as:<br /><br />
+
+    P = (1 - [1 - 1/m]^kn)^k<br /><br />
+
+    Size of Bit Array: If expected number of elements n is known and desired false positive probability is p then the size of bit array m can be calculated as:<br /><br />
+
+    m = − ((n ln P)/((ln(2))^2))<br /><br />
+
+    Optimum number of hash functions: The number of hash functions k must be a positive integer.<br />
+    If m is size of bit array and n is number of elements to be inserted, then k can be calculated as : <br /><br />
+
+
+    k = (m / n)ln(2)<br /><br />
+
+## Space Efficiency
+
+    Bloom filters do not store the data item at all.
+    
+## Choice of Hash Function
+
+    The hash function used in bloom filters should be independent and uniformly distributed.<br />
+    They should be fast as possible.
 
 # Get the source code
 
