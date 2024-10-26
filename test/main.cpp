@@ -9,7 +9,7 @@
 /**
  *  Hash functions
  */
-int hashfn1(std::string const& str, size_t arrSize)
+static int hashfn1(std::string const& str, size_t arrSize)
 {
     int hash = 0;
 
@@ -21,7 +21,7 @@ int hashfn1(std::string const& str, size_t arrSize)
     return hash;
 }
 
-int hashfn2(std::string const& str, size_t arrSize)
+static int hashfn2(std::string const& str, size_t arrSize)
 {
     int hash = 1;
 
@@ -33,7 +33,7 @@ int hashfn2(std::string const& str, size_t arrSize)
     return hash % arrSize;
 }
 
-int hashfn3(std::string const& str, size_t arrSize)
+static int hashfn3(std::string const& str, size_t arrSize)
 {
     int hash = 7;
 
@@ -44,7 +44,7 @@ int hashfn3(std::string const& str, size_t arrSize)
     return hash % arrSize;
 }
 
-int hashfn4(std::string const& str, size_t arrSize)
+static int hashfn4(std::string const& str, size_t arrSize)
 {
     int hash = 3;
     int p = 7;
@@ -57,7 +57,7 @@ int hashfn4(std::string const& str, size_t arrSize)
     return hash;
 }
 
-int hashfn5(std::string const& str, size_t arrSize)
+static int hashfn5(std::string const& str, size_t arrSize)
 {
     int hash = 3;
     int p = 11;
