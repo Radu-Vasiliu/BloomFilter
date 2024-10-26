@@ -29,6 +29,8 @@
  * The headerfile inc/BloomFilter.h contains the declaration of BloomFilter class
  * used to implement Bloom filter for strings.
  */
+#ifndef BLOOM_FILTER_H__INCLUDED
+#define BLOOM_FILTER_H__INCLUDED
 
 #include <vector>
 #include <string>
@@ -41,15 +43,17 @@ namespace rav
     public:
         BloomFilter(int filterSize);
 
-        ~BloomFilter()
+        ~BloomFilter()  
         {
-
         }
 
+        /* Insert a string in the set */
         bool insert(std::string const & str);
 
+        /* Typedef for hash function pointer */
         typedef int (*pfnHashFn)(std::string const&, size_t bitArraySize);
 
+        /* Add a hash function to the filter. */
         void addHash(pfnHashFn pfn)
         {
             hashes_.push_back(pfn);
@@ -57,20 +61,23 @@ namespace rav
         }
 
     private:
-
+        /* Checks the bitarray_ for the bits set in hashResults_.
+         * If at least one bit is not set, the string for which hashResults_ was computed is not part of the set.
+         * Otherwise it may be part of the set.
+         */
         bool lookup();
         
     private:
+        /* bit array containing bits set by hash functions */
         std::vector<bool>   bitarray_;
-
+        
+        /* the hash functions used */
         std::vector<pfnHashFn>  hashes_;
 
+        /* buffer containing the result of running hash functions on a certain input */
         std::vector<int>    hashResults_;
     };
 
 }
-
-#ifndef BLOOM_FILTER_H__INCLUDED
-#define BLOOM_FILTER_H__INCLUDED
 
 #endif // BLOOM_FILTER_H__INCLUDED
