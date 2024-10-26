@@ -65,17 +65,17 @@ namespace rav
          * If at least one bit is not set, the string for which hashResults_ was computed is not part of the set.
          * Otherwise it may be part of the set.
          */
-        bool lookup();
+        bool lookup() const;
         
     private:
         /* bit array containing bits set by hash functions */
-        std::vector<bool>   bitarray_;
+        std::vector<bool>       bitarray_;
         
         /* the hash functions used */
         std::vector<pfnHashFn>  hashes_;
 
         /* buffer containing the result of running hash functions on a certain input */
-        std::vector<int>    hashResults_;
+        std::vector<int>        hashResults_;
     };
 
 }

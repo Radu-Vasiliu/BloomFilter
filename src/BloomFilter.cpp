@@ -43,7 +43,7 @@ bool BloomFilter::insert(std::string const & str)
     return ret;
 }
 
-bool BloomFilter::lookup()
+bool BloomFilter::lookup() const
 {
     // Check if all bits are set to true
     for (size_t i = 0; i < hashResults_.size(); ++i)
