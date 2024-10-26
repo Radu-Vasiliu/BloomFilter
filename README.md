@@ -11,18 +11,18 @@ A Bloom filter is a space-efficient probabilistic data structure, conceived by B
  
 ## Probability of False positivity: 
 Let m be the size of bit array, k be the number of hash functions and n be the number of expected elements to be inserted in the filter, then the probability of false positive p can be calculated as:<br />
-
-    P = (1 - [1 - 1/m]^kn)^k
-
+```math
+    P = \left (1 - \left [1 - \frac{1}{m}\right ]^{kn}\right )^k
+```
 Size of Bit Array: If expected number of elements n is known and desired false positive probability is p then the size of bit array m can be calculated as:<br />
-
-    m = − ((n ln P)/((ln(2))^2))
-
+```math
+    m = − \frac {n\ln P}{(ln 2)^2}
+```
 Optimum number of hash functions: The number of hash functions k must be a positive integer.<br />
 If m is size of bit array and n is number of elements to be inserted, then k can be calculated as : <br />
-
-    k = (m / n)ln(2)
-
+```math
+    k = \frac{m}{n}ln 2
+```
 ## Space Efficiency
 
 Bloom filters do not store the data items at all.<br />
