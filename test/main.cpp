@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <cmath>
 
 #include "BloomFilter.h"
 
@@ -26,7 +27,7 @@ int hashfn2(std::string const& str, size_t arrSize)
 
     for (int i = 0; i < str.size(); i++)
     {
-        hash = hash + pow(19, i) * str[i];
+        hash = hash + std::pow(19, i) * str[i];
         hash = hash % arrSize;
     }
     return hash % arrSize;
@@ -50,7 +51,7 @@ int hashfn4(std::string const& str, size_t arrSize)
 
     for (int i = 0; i < str.size(); i++)
     {
-        hash += hash * 7 + str[0] * pow(p, i);
+        hash += hash * 7 + str[0] * std::pow(p, i);
         hash = hash % arrSize;
     }
     return hash;
@@ -63,7 +64,7 @@ int hashfn5(std::string const& str, size_t arrSize)
 
     for (int i = 0; i < str.size(); i++)
     {
-        hash *= hash * 17 + str[0] * pow(p, i);
+        hash *= hash * 17 + str[0] * std::pow(p, i);
         hash = hash % (arrSize * 5);
     }
     hash = hash % arrSize;
